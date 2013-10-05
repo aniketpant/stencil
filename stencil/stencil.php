@@ -9,12 +9,6 @@
 
 namespace Stencil;
 
-// Get required libraries
-require VENDOR_DIR.'jasny/config/src/Jasny/Config.php';
-require VENDOR_DIR.'jasny/config/src/Jasny/Config/Loader.php';
-require VENDOR_DIR.'jasny/config/src/Jasny/Config/LoadFile.php';
-require VENDOR_DIR.'jasny/config/src/Jasny/Config/JsonLoader.php';
-
 // Include namespaces
 use Jasny\Config;
 
@@ -30,6 +24,6 @@ class Stencil {
    * @return bool Site generation status
    */
   public function buildSite() {
-
+    print_r($this->config->name);
   }
 }
