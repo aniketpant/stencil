@@ -23,7 +23,19 @@ class Stencil {
    * Build the website
    * @return bool Site generation status
    */
-  public function buildSite() {
-    print_r($this->config->name);
+  public function build() {
+    print_r($this->getPosts());
+  }
+
+  private function getPosts() {
+    $filenames = array();
+    foreach (glob(POSTS_DIR.'*.md') as $filename) {
+      array_push($filenames, $filename);
+    }
+    return $filenames;
+  }
+
+  public function serve() {
+
   }
 }

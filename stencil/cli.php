@@ -25,7 +25,14 @@ class CLI {
       ->aka('build')
       ->describedAs('Build site')
       ->map(function() {
-        $this->stencil->buildSite();
+        $this->stencil->build();
+      });
+
+    $hello_cmd->option('s')
+      ->aka('serve')
+      ->describedAs('Serve site')
+      ->map(function() {
+        $this->stencil->serve();
       });
   }
 }
