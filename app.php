@@ -1,7 +1,8 @@
 <?php
 
-require 'stencil.php';
+require 'paths.php';
+require STENCIL_DIR.'cli.php';
 
-use Stencil\Stencil as Stencil;
+use Stencil\CLI as CLI;
 
-$stencil = new Stencil();
+$cli = new CLI();
