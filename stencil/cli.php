@@ -39,7 +39,7 @@ class CLI {
       ->aka('version')
       ->describedAs('Show version')
       ->map(function() {
-        $this->stencil->version();
+        echo 'Stencil ' . $this->stencil->version() . PHP_EOL;
       });
   }
 }

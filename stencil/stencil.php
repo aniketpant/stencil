@@ -9,7 +9,7 @@
 
 namespace Stencil;
 
-require 'constants.php';
+require STENCIL_DIR.'constants.php';
 
 // Include namespaces
 use Jasny\Config;
@@ -29,7 +29,7 @@ class Stencil {
     $postnames = $this->getPosts();
 
     foreach ($postnames as $key => $postname) {
-      $post = file_get_contents($postname);
+      $post = new Post(file_get_contents($postname));
     }
   }
 
@@ -46,6 +46,6 @@ class Stencil {
   }
 
   public function version() {
-    echo 'Stencil ' . VERSION . PHP_EOL;
+    return VERSION;
   }
 }
