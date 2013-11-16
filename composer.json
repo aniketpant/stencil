@@ -1,24 +1,25 @@
 {
-    "name": "stencil/stencil",
-    "description": "A static site generator written in PHP",
-    "require": {
-        "twig/twig": "1.14.*@dev",
-        "cocur/slugify": "dev-master",
-        "nategood/commando": "dev-master",
-        "jasny/config": "dev-master"
-    },
-    "require-dev": {
-        "twig/twig": "1.14.*@dev",
-        "cocur/slugify": "dev-master",
-        "nategood/commando": "dev-master",
-        "jasny/config": "dev-master"
-    },
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Aniket Pant",
-            "email": "me@aniketpant.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "stencil/stencil",
+  "description": "A static site generator written in PHP",
+  "require": {
+    "twig/twig": "1.14.*@dev",
+    "cocur/slugify": "dev-master",
+    "nategood/commando": "dev-master",
+    "jasny/config": "dev-master"
+  },
+  "require-dev": {
+    "twig/twig": "1.14.*@dev",
+    "cocur/slugify": "dev-master",
+    "nategood/commando": "dev-master",
+    "jasny/config": "dev-master",
+    "phpunit/phpunit": "3.7.*"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Aniket Pant",
+      "email": "me@aniketpant.com"
+    }
+  ],
+  "minimum-stability": "dev"
 }
