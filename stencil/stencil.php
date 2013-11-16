@@ -9,6 +9,8 @@
 
 namespace Stencil;
 
+require 'constants.php';
+
 // Include namespaces
 use Jasny\Config;
 
@@ -24,7 +26,11 @@ class Stencil {
    * @return bool Site generation status
    */
   public function build() {
-    print_r($this->getPosts());
+    $postnames = $this->getPosts();
+
+    foreach ($postnames as $key => $postname) {
+      $post = file_get_contents($postname);
+    }
   }
 
   private function getPosts() {
@@ -37,5 +43,9 @@ class Stencil {
 
   public function serve() {
 
+  }
+
+  public function version() {
+    echo 'Stencil ' . VERSION . PHP_EOL;
   }
 }

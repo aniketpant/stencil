@@ -34,5 +34,12 @@ class CLI {
       ->map(function() {
         $this->stencil->serve();
       });
+
+    $hello_cmd->option('v')
+      ->aka('version')
+      ->describedAs('Show version')
+      ->map(function() {
+        $this->stencil->version();
+      });
   }
 }
