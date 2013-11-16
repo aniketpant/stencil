@@ -2,13 +2,13 @@
   "name": "stencil/stencil",
   "description": "A static site generator written in PHP",
   "require": {
-    "twig/twig": "1.14.*@dev",
+    "twig/twig": "dev-master",
     "cocur/slugify": "dev-master",
     "nategood/commando": "dev-master",
     "jasny/config": "dev-master"
   },
   "require-dev": {
-    "twig/twig": "1.14.*@dev",
+    "twig/twig": "dev-master",
     "cocur/slugify": "dev-master",
     "nategood/commando": "dev-master",
     "jasny/config": "dev-master",
