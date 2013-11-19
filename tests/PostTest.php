@@ -9,10 +9,13 @@ use Stencil\Post as Post;
 
 class PostTest extends PHPUnit_Framework_TestCase
 {
-  public function testClass()
+  public function testClassConstruct()
   {
     $post = new Post();
 
     $this->assertEquals($post->title, '');
+    $this->assertEquals($post->date, time());
+    $this->assertEquals($post->layout, '');
+    $this->assertEquals($post->content, '');
   }
 }
