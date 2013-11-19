@@ -10,7 +10,9 @@ use Commando\Command as Command;
 
 class CLI {
   private $stencil;
-  function __construct() {
+
+  function __construct()
+  {
     $this->stencil = new Stencil();
     $this->initCLI();
   }
@@ -18,7 +20,8 @@ class CLI {
   /**
    * Initialize Commando
    */
-  function initCLI() {
+  function initCLI()
+  {
     $hello_cmd = new Command();
 
     $hello_cmd->option('b')

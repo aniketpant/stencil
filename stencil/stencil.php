@@ -17,7 +17,8 @@ use Jasny\Config;
 class Stencil {
   private $config;
 
-  function __construct() {
+  function __construct()
+  {
     $this->config = Config::i()->load(CONFIG_FILE);
   }
 
@@ -25,7 +26,8 @@ class Stencil {
    * Build the website
    * @return bool Site generation status
    */
-  public function build() {
+  public function build()
+  {
     $postnames = $this->getPosts();
 
     foreach ($postnames as $key => $postname) {
@@ -33,7 +35,8 @@ class Stencil {
     }
   }
 
-  private function getPosts() {
+  private function getPosts()
+  {
     $filenames = array();
     foreach (glob(POSTS_DIR.'*.md') as $filename) {
       array_push($filenames, $filename);
@@ -41,11 +44,13 @@ class Stencil {
     return $filenames;
   }
 
-  public function serve() {
+  public function serve()
+  {
 
   }
 
-  public function version() {
+  public function version()
+  {
     return VERSION;
   }
 }
