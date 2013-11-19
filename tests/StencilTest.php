@@ -1,8 +1,8 @@
 <?php
 
-require __DIR__.'/../paths.php';
-require VENDOR_DIR.'autoload.php';
-require STENCIL_DIR.'stencil.php';
+require_once __DIR__.'/../paths.php';
+require_once VENDOR_DIR.'autoload.php';
+require_once STENCIL_DIR.'stencil.php';
 
 use Stencil\Stencil as Stencil;
 
