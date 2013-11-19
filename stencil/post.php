@@ -10,11 +10,6 @@ class Post {
     $this->title = $title;
     $this->layout = $layout;
     $this->content = $content;
-
-    if ($date != '') {
-      $this->date = $date;
-    } else {
-      $this->date = time();
-    }
+    $this->date = time($date);
   }
 }
