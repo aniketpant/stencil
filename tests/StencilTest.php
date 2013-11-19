@@ -1,6 +1,6 @@
 <?php
 
-require './paths.php';
+require __DIR__.'/../paths.php';
 require VENDOR_DIR.'autoload.php';
 require STENCIL_DIR.'stencil.php';
 
