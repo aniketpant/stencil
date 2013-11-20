@@ -1,8 +1,7 @@
 <?php
 
-require_once __DIR__.'/../paths.php';
-require_once VENDOR_DIR.'autoload.php';
-require_once STENCIL_DIR.'post.php';
+require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../src/Stencil/post.php';
 
 use Stencil\Stencil as Stencil;
 use Stencil\Post as Post;
@@ -27,5 +26,14 @@ class PostTest extends PHPUnit_Framework_TestCase
     $this->assertEquals($post->date, time("2013-11-19"));
     $this->assertEquals($post->layout, "post");
     $this->assertEquals($post->content, "Content for test post");
+  }
+
+  public function testParse()
+  {
+    $postContent = "---\ntitle: Test Post 1\n---\n\nTest post #1.\nThis is some more sample content.";
+    $post = new Post();
+
+    print_r($post->parse($postContent));
+    $this->assertEquals($post->parse($postContent), "title: Test Post 1");
   }
 }

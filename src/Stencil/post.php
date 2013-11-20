@@ -12,4 +12,14 @@ class Post {
     $this->content = $content;
     $this->date = time($date);
   }
+
+  public function parse($content) {
+    $meta = $this->getYamlData($content);
+    return $meta;
+  }
+
+  private function getYamlData($content) {
+    $match = preg_split("/(\n*)(-{3})(\n*)/", $content);
+    return $match;
+  }
 }

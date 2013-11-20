@@ -9,7 +9,7 @@
 
 namespace Stencil;
 
-require STENCIL_DIR.'constants.php';
+require __DIR__.'/constants.php';
 
 // Include namespaces
 use Jasny\Config;
@@ -17,9 +17,9 @@ use Jasny\Config;
 class Stencil {
   private $config;
 
-  function __construct()
+  function __construct($filename)
   {
-    $this->config = Config::i()->load(CONFIG_FILE);
+    $this->config = Config::i()->load($filename);
   }
 
   /**

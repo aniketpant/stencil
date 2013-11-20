@@ -3,7 +3,7 @@
 namespace Stencil;
 
 // Get the core
-require STENCIL_DIR.'stencil.php';
+require __DIR__.'/stencil.php';
 
 // Include namespaces
 use Commando\Command as Command;

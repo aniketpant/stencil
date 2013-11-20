@@ -1,8 +1,7 @@
 <?php
 
-require_once __DIR__.'/../paths.php';
-require_once VENDOR_DIR.'autoload.php';
-require_once STENCIL_DIR.'stencil.php';
+require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__.'/../src/Stencil/stencil.php';
 
 use Stencil\Stencil as Stencil;
 
@@ -10,7 +9,7 @@ class StencilTest extends PHPUnit_Framework_TestCase
 {
   public function testVersion()
   {
-    $stencil = new Stencil();
+    $stencil = new Stencil(__DIR__.'/../config.json');
 
     $this->assertEquals($stencil->version(), VERSION);
   }

@@ -1,8 +1,7 @@
 <?php
 
-require __DIR__.'/paths.php';
-require VENDOR_DIR.'autoload.php';
-require STENCIL_DIR.'cli.php';
+require __DIR__.'/src/Stencil/autoload.php';
+require __DIR__.'/src/Stencil/cli.php';
 
 use Stencil\CLI as CLI;
 
