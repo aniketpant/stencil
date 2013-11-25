@@ -21,5 +21,10 @@
       "email": "me@aniketpant.com"
     }
   ],
-  "minimum-stability": "dev"
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-0": {
+      "Stencil": "src/"
+    }
+  }
 }
