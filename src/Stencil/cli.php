@@ -9,18 +9,18 @@ require __DIR__.'/stencil.php';
 use Commando\Command as Command;
 
 class CLI {
-  private $stencil;
+  private $_stencil;
 
-  function __construct()
+  function __construct($filename)
   {
-    $this->stencil = new Stencil();
-    $this->initCLI();
+    $this->_stencil = new Stencil($filename);
+    $this->_initCLI();
   }
 
   /**
    * Initialize Commando
    */
-  function initCLI()
+  private static function _initCLI()
   {
     $hello_cmd = new Command();
 

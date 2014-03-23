@@ -15,11 +15,19 @@ require __DIR__.'/constants.php';
 use Jasny\Config;
 
 class Stencil {
-  private $config;
+  private $_config;
 
   function __construct($filename)
   {
-    $this->config = Config::i()->load($filename);
+    $this->_loadConfig($filename);
+  }
+
+  /**
+   * Load config file to Stencil instance
+   */
+  private static function _loadConfig($filename)
+  {
+    $_config = \Jasny\Config::load($filename);
   }
 
   /**
@@ -28,14 +36,14 @@ class Stencil {
    */
   public function build()
   {
-    $postnames = $this->getPosts();
+    $postnames = $this->_getPosts();
 
     foreach ($postnames as $key => $postname) {
       $post = new Post(file_get_contents($postname));
     }
   }
 
-  private function getPosts()
+  private static function _getPosts()
   {
     $filenames = array();
     foreach (glob(POSTS_DIR.'*.md') as $filename) {
@@ -49,7 +57,7 @@ class Stencil {
 
   }
 
-  public function version()
+  public static function version()
   {
     return VERSION;
   }
