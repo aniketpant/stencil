@@ -33,7 +33,6 @@ class PostTest extends PHPUnit_Framework_TestCase
     $postContent = "---\ntitle: Test Post 1\n---\n\nTest post #1.\nThis is some more sample content.";
     $post = new Post();
 
-    print_r($post->parse($postContent));
     $this->assertEquals($post->parse($postContent), "title: Test Post 1");
   }
 }

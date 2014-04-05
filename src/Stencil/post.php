@@ -4,6 +4,9 @@ namespace Stencil;
 
 class Post {
   public $title;
+  public $layout;
+  public $content;
+  public $date;
 
   function __construct($title = '', $date = '', $layout = '', $content = '')
   {
@@ -19,7 +22,7 @@ class Post {
   }
 
   private function getYamlData($content) {
-    $match = preg_split("/(\n*)(-{3})(\n*)/", $content);
-    return $match;
+    preg_match('/-{3}\n([\S\s]+)\n-{3}\n/', $content, $match);
+    return $match[1];
   }
 }
