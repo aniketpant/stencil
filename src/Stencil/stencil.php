@@ -12,7 +12,7 @@ namespace Stencil;
 require __DIR__.'/constants.php';
 
 // Include namespaces
-use Jasny\Config;
+use Jasny\Config as Config;
 
 class Stencil {
   private $_config;
@@ -27,7 +27,7 @@ class Stencil {
    */
   private static function _loadConfig($filename)
   {
-    $_config = \Jasny\Config::load($filename);
+    $_config = (new Config)->load($filename);
   }
 
   /**
