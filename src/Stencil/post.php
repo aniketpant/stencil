@@ -17,11 +17,11 @@ class Post {
   }
 
   public function parse($content) {
-    $meta = $this->getYamlData($content);
+    $meta = $this->_getYamlData($content);
     return $meta;
   }
 
-  private function getYamlData($content) {
+  private function _getYamlData($content) {
     preg_match('/-{3}\n([\S\s]+)\n-{3}\n/', $content, $match);
     return $match[1];
   }
