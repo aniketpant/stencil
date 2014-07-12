@@ -1,9 +1,11 @@
 <?php
 
+namespace Stencil\Test;
+
 use Stencil\Stencil;
 use Stencil\Post;
 
-class PostTest extends PHPUnit_Framework_TestCase
+class PostTest extends \PHPUnit_Framework_TestCase
 {
     public function testClassConstruct()
     {
