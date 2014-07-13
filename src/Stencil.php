@@ -25,7 +25,7 @@ class Stencil {
     /**
      * Load config file to Stencil instance
      */
-    private static function _loadConfig($filename)
+    private function _loadConfig($filename)
     {
         $_config = (new Config)->load($filename);
     }
@@ -43,7 +43,7 @@ class Stencil {
         }
     }
 
-    private static function _getPosts()
+    private function _getPosts()
     {
         $filenames = array();
         foreach (glob(POSTS_DIR.'*.md') as $filename) {

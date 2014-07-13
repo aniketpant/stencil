@@ -31,7 +31,11 @@ class PostTest extends \PHPUnit_Framework_TestCase
     {
         $postContent = "---\ntitle: Test Post 1\n---\n\nTest post #1.\nThis is some more sample content.";
         $post = new Post();
+        $post->parse($postContent);
+        $postMeta = $post->getPostMeta();
+        $postBody = $post->getPostBody();
 
-        $this->assertEquals($post->parse($postContent), "title: Test Post 1");
+        $this->assertEquals($postMeta, "title: Test Post 1");
+        $this->assertEquals($postBody, "Test post #1.\nThis is some more sample content.");
     }
 }

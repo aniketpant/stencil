@@ -5,8 +5,11 @@ namespace Stencil;
 class Post {
     public $title;
     public $layout;
-    public $content;
     public $date;
+    public $content;
+
+    public $meta;
+    public $body;
 
     function __construct($title = '', $date = '', $layout = '', $content = '')
     {
@@ -18,14 +21,30 @@ class Post {
 
     public function parse($content)
     {
-        $meta = $this->_getYamlData($content);
-
-        return $meta;
+        $this->meta = $this->_parsePostMeta($content);
+        $this->body = $this->_parsePostBody($content);
     }
 
-    private function _getYamlData($content)
+    public function getPostMeta()
     {
-        preg_match('/-{3}\n([\S\s]+)\n-{3}\n/', $content, $match);
+        return $this->meta;
+    }
+
+    public function getPostBody()
+    {
+        return $this->body;
+    }
+
+    private function _parsePostMeta($content)
+    {
+        preg_match('/-{3}\n([\s\S]+)\n-{3}\n/', $content, $match);
+
+        return $match[1];
+    }
+
+    private function _parsePostBody($content)
+    {
+        preg_match('/-{3}\n\n([\s\S]+)/', $content, $match);
 
         return $match[1];
     }
