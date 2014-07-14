@@ -21,8 +21,14 @@ class Post {
 
     public function parse($content)
     {
-        $this->meta = $this->_parsePostMeta($content);
+        $this->metaText = $this->_parsePostMeta($content);
+        $this->meta = $this->_parsePostMetaData($this->metaText);
         $this->body = $this->_parsePostBody($content);
+    }
+
+    public function getPostMetaText()
+    {
+        return $this->metaText;
     }
 
     public function getPostMeta()
@@ -37,9 +43,20 @@ class Post {
 
     private function _parsePostMeta($content)
     {
-        preg_match('/-{3}\n([\s\S]+)\n-{3}\n/', $content, $match);
+        preg_match('/-{3}\n([\s\S]+?)\n-{3}\n/', $content, $match);
 
         return $match[1];
+    }
+
+    private function _parsePostMetaData($meta)
+    {
+        preg_match_all('/([\S]+?): ([\S ]+)/', $meta, $data);
+        array_splice($data, 0, 1);
+
+        foreach ($data[0] as $key => $value)
+            $output[$value] = $data[1][$key];
+
+        return $output;
     }
 
     private function _parsePostBody($content)

@@ -29,13 +29,15 @@ class PostTest extends \PHPUnit_Framework_TestCase
 
     public function testParse()
     {
-        $postContent = "---\ntitle: Test Post 1\n---\n\nTest post #1.\nThis is some more sample content.";
+        $postContent = "---\ntitle: Test Post 1\nauthor: Aniket Pant\n---\n\nTest post #1.\nThis is some more sample content.";
         $post = new Post();
         $post->parse($postContent);
-        $postMeta = $post->getPostMeta();
+        $postMetaText = $post->getPostMetaText();
         $postBody = $post->getPostBody();
+        $postMeta = $post->getPostMeta();
 
-        $this->assertEquals($postMeta, "title: Test Post 1");
+        $this->assertEquals($postMetaText, "title: Test Post 1\nauthor: Aniket Pant");
         $this->assertEquals($postBody, "Test post #1.\nThis is some more sample content.");
+        $this->assertEquals($postMeta, array('title' => 'Test Post 1', 'author' => 'Aniket Pant'));
     }
 }
