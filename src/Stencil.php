@@ -14,10 +14,11 @@ require __DIR__ . '/constants.php';
 // Include namespaces
 use Jasny\Config as Config;
 
-class Stencil {
+class Stencil
+{
     private $_config;
 
-    function __construct($filename)
+    public function __construct($filename)
     {
         $this->_loadConfig($filename);
     }
@@ -49,6 +50,7 @@ class Stencil {
         foreach (glob(POSTS_DIR.'*.md') as $filename) {
             array_push($filenames, $filename);
         }
+
         return $filenames;
     }
 

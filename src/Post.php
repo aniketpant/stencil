@@ -2,7 +2,8 @@
 
 namespace Stencil;
 
-class Post {
+class Post
+{
     public $title;
     public $layout;
     public $date;
@@ -11,7 +12,7 @@ class Post {
     public $meta;
     public $body;
 
-    function __construct($title = '', $date = '', $layout = '', $content = '')
+    public function __construct($title = '', $date = '', $layout = '', $content = '')
     {
         $this->title = $title;
         $this->layout = $layout;
