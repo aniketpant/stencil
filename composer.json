@@ -5,14 +5,16 @@
     "twig/twig": "dev-master",
     "cocur/slugify": "dev-master",
     "nategood/commando": "dev-master",
-    "jasny/config": "dev-master"
+    "jasny/config": "dev-master",
+    "cebe/markdown": "dev-master"
   },
   "require-dev": {
     "twig/twig": "dev-master",
     "cocur/slugify": "dev-master",
     "nategood/commando": "dev-master",
     "jasny/config": "dev-master",
-    "phpunit/phpunit": "3.7.*"
+    "phpunit/phpunit": "3.7.*",
+    "cebe/markdown": "dev-master"
   },
   "license": "MIT",
   "authors": [
