@@ -9,7 +9,7 @@
 
 namespace Stencil;
 
-require __DIR__ . '/constants.php';
+require __DIR__ . '/Constants.php';
 
 // Include namespaces
 use Jasny\Config as Config;

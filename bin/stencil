@@ -1,0 +1,7 @@
+#!/usr/bin/php
+<?php
+
+include __DIR__ . '/../vendor/autoload.php';
+
+use Stencil\CLI as CLI;
+$cli = new CLI('config.json');

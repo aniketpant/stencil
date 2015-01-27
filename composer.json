@@ -1,5 +1,6 @@
 {
   "name": "stencil/stencil",
+  "bin": ["bin/stencil"],
   "description": "A static site generator written in PHP",
   "require": {
     "twig/twig": "1.16.0",
