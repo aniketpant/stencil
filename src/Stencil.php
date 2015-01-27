@@ -11,9 +11,6 @@ namespace Stencil;
 
 require __DIR__ . '/Constants.php';
 
-// Include namespaces
-use Jasny\Config as Config;
-
 class Stencil
 {
     private $_config;
@@ -28,7 +25,7 @@ class Stencil
      */
     private function _loadConfig($filename)
     {
-        $_config = (new Config)->load($filename);
+        $_config = json_decode($filename, true);
     }
 
     /**
