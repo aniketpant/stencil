@@ -4,4 +4,9 @@
 include __DIR__ . '/../vendor/autoload.php';
 
 use Stencil\CLI as CLI;
+/*
+
+Create a config.json file with values of "readDir", "writeDir" and "readFile"
+
+**/
 $cli = new CLI('config.json');

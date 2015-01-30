@@ -3,7 +3,7 @@
 namespace Stencil;
 
 // Get the core
-require __DIR__ . '/stencil.php';
+// require __DIR__ . '/Stencil.php';
 
 // Include namespaces
 use Commando\Command as Command;
@@ -29,14 +29,14 @@ class CLI
             ->aka('build')
             ->describedAs('Build site')
             ->map(function () {
-                $this->stencil->build();
+                $this->_stencil->build();
             });
 
         $hello_cmd->option('s')
             ->aka('serve')
             ->describedAs('Serve site')
             ->map(function () {
-                $this->stencil->serve();
+                $this->_stencil->serve();
             });
 
         $hello_cmd->option('v')

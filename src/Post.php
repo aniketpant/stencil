@@ -2,6 +2,7 @@
 
 namespace Stencil;
 
+require __DIR__ . '/Parser.php';
 class Post
 {
     public $title;
@@ -14,12 +15,18 @@ class Post
     public $meta;
     public $body;
 
-    public function __construct($title = '', $date = '', $layout = '', $content = '')
+    public function __construct($title = '',$content = '', $date = '', $layout = '')
     {
         $this->title = $title;
-        $this->layout = $layout;
         $this->content = $content;
+        $this->layout = $layout;
         $this->date = time($date);
+    }
+
+    public function parse($content)
+    {
+        $this->extract($content);
+        $this->body = Parser::parse($this->bodyText);
     }
 
     public function extract($content)
@@ -27,12 +34,6 @@ class Post
         $this->metaText = $this->_extractPostMeta($content);
         $this->meta = $this->_extractPostMetaData($this->metaText);
         $this->bodyText = $this->_extractPostBody($content);
-    }
-
-    public function parse($content)
-    {
-        $this->extract($content);
-        $this->body = Parser::parse($this->bodyText);
     }
 
     private function _extractPostMeta($content)

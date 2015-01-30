@@ -8,12 +8,13 @@
  */
 
 namespace Stencil;
-
 require __DIR__ . '/Constants.php';
 
 class Stencil
 {
     private $_config;
+    private $_filenames;
+    private $_posts;
 
     public function __construct($filename)
     {
@@ -25,7 +26,7 @@ class Stencil
      */
     private function _loadConfig($filename)
     {
-        $_config = json_decode($filename, true);
+        $this->_config = json_decode(file_get_contents($filename), true);
     }
 
     /**
@@ -34,21 +35,51 @@ class Stencil
      */
     public function build()
     {
-        $postnames = $this->_getPosts();
-
-        foreach ($postnames as $key => $postname) {
-            $post = new Post(file_get_contents($postname));
-        }
+        $this->_getFilenames($this->_config['readDir'])
+             ->_getPosts($this->_filenames)
+             ->_writePosts($this->_posts,$this->_config['writeDir']);
     }
 
-    private function _getPosts()
+    private function _getPost($filename)
     {
-        $filenames = array();
-        foreach (glob(POSTS_DIR.'*.md') as $filename) {
-            array_push($filenames, $filename);
+
+    }
+
+    private function _getFilenames($readDir)
+    {
+        $this->_filenames = array();
+        foreach (glob($readDir.'*.md') as $filename)
+        {
+            array_push($this->_filenames, $filename);
+        }
+        return $this;
+    }
+
+    private function _getPosts($filenames)
+    {
+        $this->_posts = array();
+        foreach ($filenames as $file)
+        {
+            $post = new Post($file, file_get_contents($file));
+            array_push($this->_posts, $post);
+        }
+        return $this;
+    }
+
+    private function _writePosts($posts,$writeDir)
+    {
+        foreach ($posts as $post)
+        {
+            $post->parse($post->content);
+            if(is_writable($writeDir))
+            {
+            $file = fopen($writeDir.basename($post->title,".md").".html", 'w');
+            fwrite($file, $post->body);
+            } else {
+                echo "fail";
+            }
         }
 
-        return $filenames;
     }
 
     public function serve()
